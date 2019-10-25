@@ -35,7 +35,8 @@ then
    kubectl -n uni-resolver create -f ${CONTAINER_NAME}-service.yaml
 else
    echo "Updating cluster ..."
-   kubectl n uni-resolver rollout restart -f ${CONTAINER_NAME}-deployment.yaml
+   kubectl -n uni-resolver rollout restart -f ${CONTAINER_NAME}-deployment.yaml
+   kubectl -n uni-resolver rollout restart -f ${CONTAINER_NAME}-service.yaml
 fi
 
-kubectl n uni-resolver rollout restart -f uni-resolver-ingress.yaml
+kubectl -n uni-resolver rollout restart -f uni-resolver-ingress.yaml
