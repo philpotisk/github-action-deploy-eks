@@ -1,4 +1,4 @@
-FROM phil21/deploy-eks-base:1.0
+FROM phil21/deploy-eks-base:1.1
 
 LABEL "name"="Deploy to AWS EKS"
 LABEL "maintainer"="Phil <philipp.potisk@danubetech.com>"
