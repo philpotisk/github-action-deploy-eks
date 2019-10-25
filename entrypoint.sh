@@ -17,8 +17,6 @@ ls -al
 echo "$KUBE_CONFIG_DATA" | base64 --decode > /tmp/config
 export KUBECONFIG=/tmp/config
 
-unset AWS_ACCESS_KEY_ID
-unset AWS_SECRET_ACCESS_KEY
 kubectl version --client --short
 echo "Checking deployment state of ${CONTAINER_NAME} ..."
 IS_DEPLOYED=$(kubectl -n uni-resolver get deployments |grep ${CONTAINER_NAME})
