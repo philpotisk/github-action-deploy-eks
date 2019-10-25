@@ -36,7 +36,6 @@ then
 else
    echo "Updating cluster ..."
    kubectl -n uni-resolver rollout restart -f ${CONTAINER_NAME}-deployment.yaml
-   kubectl -n uni-resolver rollout restart -f ${CONTAINER_NAME}-service.yaml
 fi
 
-kubectl -n uni-resolver rollout restart -f uni-resolver-ingress.yaml
+kubectl -n kube-system rollout restart -f aws/uni-resolver-ingress.yaml
