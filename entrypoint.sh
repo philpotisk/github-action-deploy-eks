@@ -18,6 +18,7 @@ ls -al
 echo "$KUBE_CONFIG_DATA" | base64 --decode > /tmp/config
 export KUBECONFIG=/tmp/config
 
+echo "Checking deployment state of ${CONTAINER_NAME} ..."
 IS_DEPLOYED=$(kubectl -n uni-resolver get deployments |grep ${CONTAINER_NAME})
 
 
@@ -30,8 +31,8 @@ IS_DEPLOYED=$(kubectl -n uni-resolver get deployments |grep ${CONTAINER_NAME})
 if [ -z "${IS_DEPLOYED}" ]
 then
    echo "Creating cluster (${CONTAINER_NAME}-deployment.yaml) ..."
-   kubectl n uni-resolver create -f ${CONTAINER_NAME}-deployment.yaml
-   kubectl n uni-resolver create -f ${CONTAINER_NAME}-service.yaml
+   kubectl -n uni-resolver create -f ${CONTAINER_NAME}-deployment.yaml
+   kubectl -n uni-resolver create -f ${CONTAINER_NAME}-service.yaml
 else
    echo "Updating cluster ..."
    kubectl n uni-resolver rollout restart -f ${CONTAINER_NAME}-deployment.yaml
