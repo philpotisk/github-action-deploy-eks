@@ -38,4 +38,4 @@ else
    kubectl -n uni-resolver rollout restart -f ${CONTAINER_NAME}-deployment.yaml
 fi
 
-kubectl -n kube-system rollout restart -f uni-resolver-ingress.yaml
+kubectl -n uni-resolver apply -f uni-resolver-ingress.yaml
