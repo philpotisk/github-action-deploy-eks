@@ -9,7 +9,7 @@ ls -al
 echo "$EXTERNAL_GIT_KEY" | base64 --decode > ./id_rsa
 chmod 400 ./id_rsa
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-ssh-agent bash -c 'ssh-add ./id_rsa; git clone git@ec2-13-59-213-19.us-east-2.compute.amazonaws.com:/home/git/uniresolver-kubernetes'
+ssh-agent bash -c 'ssh-add ./id_rsa; git clone ssh://git-read@11347-01.root.nessus.at:/var/git/universal-resolver-kubernetes.git'
 
 cd ./uniresolver-kubernetes
 ls -al
