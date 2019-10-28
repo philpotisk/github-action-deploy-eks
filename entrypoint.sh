@@ -9,9 +9,9 @@ ls -al
 echo "$EXTERNAL_GIT_KEY" | base64 --decode > ./id_rsa
 chmod 400 ./id_rsa
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-ssh-agent bash -c 'ssh-add ./id_rsa; git clone ssh://git-read@11347-01.root.nessus.at:/var/git/universal-resolver-kubernetes.git'
+ssh-agent bash -c 'ssh-add ./id_rsa; git clone ssh://git@11347-01.root.nessus.at:/var/git/universal-resolver-kubernetes.git'
 
-cd ./uniresolver-kubernetes
+cd ./universal-resolver-kubernetes
 ls -al
 
 echo "$KUBE_CONFIG_DATA" | base64 --decode > /tmp/config
