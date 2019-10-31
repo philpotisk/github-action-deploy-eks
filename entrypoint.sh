@@ -6,12 +6,12 @@ set -e
 
 ls -al
 
-curl https://www.whatismyip.net/
+#curl https://www.whatismyip.net/
 
 echo "$EXTERNAL_GIT_KEY" | base64 --decode > ./id_rsa
 chmod 400 ./id_rsa
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-ssh-agent bash -c 'ssh-add ./id_rsa; git clone ssh://git@gitlab.com:pp21/universal-resolver-kubernetes-pp.git'
+ssh-agent bash -c 'ssh-add ./id_rsa; git clone git@gitlab.com:pp21/universal-resolver-kubernetes-pp.git'
 
 cd ./universal-resolver-kubernetes
 ls -al
